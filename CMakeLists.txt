@@ -13,7 +13,19 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(main src/main.cpp)
+set(SOURCES
+    src/main.cpp
+    src/GameController.cpp
+    src/Player.cpp
+)
+
+set(HEADERS
+    headers/GameController.h
+    headers/Player.h
+    headers/GameObject.h
+)
+
+add_executable(main ${SOURCES} ${HEADERS})
 target_link_libraries(main PRIVATE sfml-graphics sfml-window sfml-system)
 target_compile_features(main PRIVATE cxx_std_17)
 

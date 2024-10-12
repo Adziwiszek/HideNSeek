@@ -1,21 +1,10 @@
 #include <SFML/Graphics.hpp>
+#include "../headers/GameController.h"
 
 int main()
 {
-    auto window = sf::RenderWindow{ { 800u, 600u }, "CMake SFML Project" };
-    window.setFramerateLimit(144);
+    auto game_controller = GameController();
 
-    while (window.isOpen())
-    {
-        for (auto event = sf::Event{}; window.pollEvent(event);)
-        {
-            if (event.type == sf::Event::Closed)
-            {
-                window.close();
-            }
-        }
-
-        window.clear(sf::Color::Green);
-        window.display();
-    }
+    game_controller.init(sf::VideoMode(800, 600), "Online framework!");
+    game_controller.run();
 }
